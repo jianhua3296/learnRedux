@@ -1,15 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Counter from './src/Counter';
+import {store } from './src/store/store';
+import {Provider} from 'react-redux';
 
-export default function App() {
+
+const App=(props) => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  <Provider store={store}>
+    <Counter />
+
+  </Provider>
   );
-}
+  }
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +23,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+export default App;
+
+
